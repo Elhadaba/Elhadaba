@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elhadba Cafe Menu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+        /* ====== الألوان الجديدة (برتقالي #DA793C × أسود فخم) ====== */
+        :root {
+           --main-color: #ff751f; /* برتقالي دافئ وأنيق */
+            --highlight-color: #FFFFFF; /* أبيض */
+            --bg-color: #000000; /* خلفية سوداء */
+            --text-color: #F5F5F5; /* نص أبيض ناعم */
+            --orange-shadow: rgba(218, 121, 60, 0.4); /* ظل بنفس درجة البرتقالي */
+        }
+
+        body {
+            font-family: "Cairo", sans-serif;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        /* اللوجو */
+        .logo {
+            margin: 5px auto 2px;
+        }
+        .logo img {
+            width: 110px;
+            height: auto;
+            border-radius: 20px;
+        }
+
+        /* شريط الروابط */
+        .top-menu {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            background: var(--bg-color);
+            border-bottom: 2px solid var(--orange-shadow);
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 2px 5px var(--orange-shadow);
+        }
+
+        .top-menu::-webkit-scrollbar {
+            height: 6px;
+        }
+        .top-menu::-webkit-scrollbar-thumb {
+            background: white;
+            border-radius: 10px;
+        }
+
+        .top-menu a {
+            flex: 0 0 auto;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 12px 18px;
+            font-size: 14px;
+            text-align: center;
+            display: inline-block;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        .top-menu a.active {
+            
+            font-weight: bold;
+            color: var(--main-color);
+        }
+
+        .top-menu a:hover {
+            background: rgba(218, 121, 60, 0.1);
+            color: var(--main-color);
+        }
+
+        /* الصورة الوسطى */
+        .middle-image {
+            margin: 37px auto 20px; 
+        }
+        .middle-image img {
+            width: 300px;
+            max-width: 100%;
+            border-radius: 20px;
+        }
+
+        /* النص الترحيبي */
+        .footer-text {
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+            position: relative; 
+            margin: 20px auto 90px;
+            width: 90%; 
+            max-width: 500px; 
+            z-index: 1; 
+            padding: 10px 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* السوشيال */
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px;
+            background: var(--main-color);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            animation: slideUp 1s ease-out;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--bg-color);
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 24px;
+            color: var(--main-color);
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
+            transform: scale(1.1);
+        }
+
+        /* الحركة من تحت */
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="logo">
+        <img src="Screenshot 2025-10-26 005648.png" alt="Elhadba Cafe Logo">
+    </div>
+
+    <div class="top-menu">
+        <a href="index.html" class="active"><i class="fa fa-home"></i></a>
+
+        <a href="hot.html">مشروبات ساخنة <br> Hot drinks</a>
+        <a href="coffee.html">قهوة <br> Coffee</a>
+        <a href="Espresso.html">اسبريسو<br> Espresso</a>
+        <a href="soft_Drinks.html">مشروبات غازيه<br>soft_Drinks</a>
+        <a href="juice.html">عصائر <br> Juice</a>
+        <a href="milkshake.html">ميلك شيك <br> Milkshake</a>
+        <a href="frappe.html">فرابيه <br> frappe</a>
+        <a href="soda.html">ميكس صودا <br> Mix Soda</a>
+        <a href="cocktail.html">كوكتيل <br> Cocktail</a>
+        <a href="smoothie.html">سموزي <br> Smoothie</a>
+        <a href="ice_coffee.html">آيس كوفي <br> Ice Coffee</a>
+        <a href="zabado.html">زابادو <br> Zabado</a>
+        <a href="Shisha.html">شيشه<br> Shisha</a>
+        <a href="waffle.html">وافل <br> Waffle</a>
+        <a href="dessert.html">حلويات <br> Dessert</a>
+    </div>
+
+    <div class="middle-image">
+        <img src="new logoo.png" alt="">
+    </div>
+
+    <div class="footer-text">
+        Welcome to Elhadba Cafe. Take a seat and enjoy your moment of tranquility
+    </div>
+
+    <div class="social">
+        <a href="https://www.tiktok.com/@greenzone920?_t=ZS-8zLtclcmJBI&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/share/16JGsjjDKQ/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منيو المشروبات الساخنة - كافيه الهضبة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+        /* ====== الألوان المُعدلة (الذهب الخالص والفخامة) ====== */
+        :root {
+            /* لون الذهب الخالص (Rich Gold) - دافئ وأنيق */
+            --main-color: #ff751f; 
+            --highlight-color: #FFFFFF; 
+            --bg-color: #000000; /* أسود عميق (Jet Black) */
+            --text-color: #F5F5F5; /* أبيض ناعم للنص العادي */
+            --card-bg-transparent: rgba(255, 255, 255, 0.05); /* خلفية بطاقة شفافة سوداء */
+            /* لون ظل خفيف بالذهب */
+            --gold-shadow: rgba(196, 154, 110, 0.4); 
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+        }
+
+        /* ====== الهيدر ====== */
+        header {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+        header img.bg-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            transition: opacity 1s ease-in-out;
+        }
+        header .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.75); /* ظل أغمق للخلفية */
+        }
+        header .content {
+            position: relative;
+            text-align: center;
+            color: var(--main-color); 
+            padding-top: 80px;
+        }
+        header .content .sub-texts {
+            margin-top: 170px;
+        }
+        header .content p {
+            margin: 5px 0;
+            font-size: 18px;
+            color: white; 
+            /* ظل نصي خفيف للوضوح */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); 
+        }
+
+        /* ====== شريط التنقل ====== */
+        .top-menu {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            background: var(--bg-color);
+            border-bottom: 2px solid var(--gold-shadow); /* خط ذهبي خفيف أسفل القائمة */
+            scroll-behavior: smooth;
+        }
+        .top-menu::-webkit-scrollbar {
+            height: 6px;
+        }
+        .top-menu::-webkit-scrollbar-thumb {
+            background: white; /* مقبض ذهبي */
+            border-radius: 10px;
+        }
+        .top-menu a {
+            flex: 0 0 auto;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 12px 18px;
+            font-size: 14px;
+            text-align: center;
+            display: inline-block;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+        .top-menu a.active {
+         
+            color: var(--main-color);
+            font-weight: bold;
+        }
+        .top-menu a:hover {
+            background: rgba(196, 154, 110, 0.1); /* تأثير خفيف عند المرور */
+        }
+
+        /* ====== المنيو ====== */
+        .menu-container {
+            max-width: 900px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 20px;
+        }
+        .menu-card {
+            background-color: var(--card-bg-transparent); 
+            border-radius: 20px;
+            /* إطار خفيف جداً يحدد شكل البطاقة */
+            border: 1px solid rgba(196, 154, 110, 0.15); 
+            /* ظل أنيق للداخل ليعطي عمق */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            padding: 15px;
+            color: var(--text-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 55px;
+        }
+        .menu-card:hover {
+            transform: translateY(-5px); 
+            /* ظل خارجي بلون الذهب عند المرور */
+            box-shadow: 0 10px 20px rgba(196, 154, 110, 0.3), 0 0 5px rgba(196, 154, 110, 0.2); 
+            background-color: rgba(196, 154, 110, 0.08); /* لمسة ذهبية خفيفة جدًا عند المرور */
+        }
+        .menu-card h3 {
+            margin: 0;
+            font-size: 16px;
+            color: var(--text-color);
+        }
+        .menu-card p {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--main-color); /* السعر باللون الذهبي الخالص */
+            margin: 0;
+        }
+
+        /* 📱 موبايل: صفين */
+        @media (max-width: 768px) {
+            .menu-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .menu-card h3 {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img class="bg-slider" src="Waffles1.jpeg" alt="background">
+        <img class="bg-slider" src="Waffles2.jpeg" alt="background" style="opacity:0">
+        <img class="bg-slider" src="Waffles3.jpeg" alt="background" style="opacity:0">
+         <img class="bg-slider" src="Waffles4.jpeg" alt="background" style="opacity:0">
+        <img class="bg-slider" src="Waffles6.jpeg" alt="background" style="opacity:0">
+         <img class="bg-slider" src="Waffles7.jpeg" alt="background" style="opacity:0">
+        <img class="bg-slider" src="Waffles8.jpeg" alt="background" style="opacity:0">
+        
+             
+         
+        
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="sub-texts">
+                <p>waffle </p>
+                <p>وافل</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="top-menu">
+        <a href="index.html"><i class="fa fa-home"></i></a>
+        <a href="hot.html" >مشروبات ساخنة <br> Hot drinks</a>
+        <a href="coffee.html">قهوة <br> Coffee</a>
+          <a href="Espresso.html ">اسبريسو<br> Espresso</a>
+       <a href="soft_Drinks.html">مشروبات غازيه<br>soft_Drinks</a>
+        <a href="juice.html">عصائر <br> Juice</a>
+        <a href="milkshake.html">ميلك شيك <br> Milkshake</a>
+        <a href="frappe.html">فرابيه <br> frappe</a>
+        <a href="soda.html">ميكس صودا <br> Mix Soda</a>
+        <a href="cocktail.html">كوكتيل <br> Cocktail</a>
+       <a href="ice_coffee.html">آيس كوفي <br> Ice Coffee</a>
+        <a href="smoothie.html">سموزي <br> Smoothie</a>
+        <a href="zabado.html">زابادو <br> Zabado</a>
+        <a href="Shisha.html">شيشه<br> Shisha</a>
+        <a href="waffle.html"class="active">وافل <br> Waffle</a>
+        <a href="dessert.html">حلويات <br> Dessert</a>
+    </div>
+
+    
+<div class="menu-container">
+
+  <div class="menu-card"><h3>وافل كلاسيك</h3><p>55</p></div>
+  <div class="menu-card"><h3>وافل لوتس</h3><p>70</p></div>
+  <div class="menu-card"><h3>وافل وايت</h3><p>55</p></div>
+  <div class="menu-card"><h3>وافل كراميل</h3><p>55</p></div>
+  <div class="menu-card"><h3>وافل فروت</h3><p>80</p></div>
+  <div class="menu-card"><h3>وافل ميكس</h3><p>65</p></div>
+  <div class="menu-card"><h3>وافل بيستاشيو</h3><p>80</p></div>
+  <div class="menu-card"><h3>وافل كيندر</h3><p>80</p></div>
+
+</div>
+
+
+
+    <script>
+        // سكريبت عرض الشرائح لخلفية الهيدر
+        const slides = document.querySelectorAll('.bg-slider');
+        let current = 0;
+        setInterval(() => {
+            slides[current].style.opacity = 0;
+            current = (current + 1) % slides.length;
+            slides[current].style.opacity = 1;
+        }, 3000);
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</body>
+</html> 
